@@ -75,26 +75,6 @@ if st.button("Check Strength"):
     else:  
         st.warning("⚠️ Please enter a password first!")  
 
-def generate_password_meter(use_digits  ,use_special):
-    characters = string.ascii_letters
-
-
-    if use_digits:
-        characters += string.digits
-
-    if use_special:
-        characters += string.punctuation
-
-    return ''.join(random.choice(characters) for loop in range(length))
-
-        
-use_digits = st.checkbox("Include Digits")
-
-use_special = st.checkbox("Use Special Characters")
-
-if st.button("Generate Password"):
-    password = generate_password_meter(use_digits  ,use_special)
-    st.write(f"Generated Password: `{password}`")
 
 
 st.write("----------")
