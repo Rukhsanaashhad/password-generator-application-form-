@@ -1,1 +1,1 @@
-[# password-strength](https://password-strength-ashhad.streamlit.app)
+[Password-strength](https://password-strength-ashhad.streamlit.app)
