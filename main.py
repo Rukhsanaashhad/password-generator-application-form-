@@ -72,3 +72,6 @@ if st.button("Check Strength"):
         check_password_strength(password)  
     else:  
         st.warning("⚠️ Please enter a password first!")  
+
+st.write("----------")
+st.write("©️ Created by [Muhammad Ashhad Khan](https://github.com/Rukhsanaashhad)")
