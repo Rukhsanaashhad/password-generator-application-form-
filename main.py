@@ -18,7 +18,7 @@ st.markdown("""
 st.title("🔐 Password Strength Generator (Application Form)")  
 
 # Password strength checking function  
-st.write("Enter Your Password Below to check its security level.")  
+st.write("Create a secure username and password to protect your account.")  
 
 def check_password_strength(password):  
     score = 0  
