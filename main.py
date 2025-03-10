@@ -46,7 +46,7 @@ def check_password_strength(password):
 
     # Display password strength result  
     if score == 4:  
-        st.success("✅ **Strong Password** Your password is safe.")  
+        st.success("✅ **Strong Password**: Your Application Form has been submitted")  
     elif score == 3:  
         st.info("⚠️ **Moderate Password** - Consider improving security by adding more features.")  
     else:  
@@ -69,14 +69,13 @@ if user:
 # Password input  
 password = st.text_input("Enter your password", type="password", help="Ensure your password is strong 🔐")  
 
-if st.button("Check Strength"):  
+if st.button("Check Strength and Submit"):  
     if password:  
         check_password_strength(password)  
     else:  
         st.warning("⚠️ Please enter a password first!")  
 
-if user == password:
-    st.button("Application form has been submitted")
+
 
 
 
