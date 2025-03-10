@@ -58,11 +58,13 @@ def check_password_strength(password):
                     st.write(item)
 
 
-user= st.text_input("Enter your Username")
-if (user) >= 6:
-    print("Username Saved Successfully! ")
+
+user = st.text_input("Enter your Username")
+if len(user) >= 6:
+    print("Username Saved Successfully!")
 else:
-    print("username must be at least 6 characters")
+    print("Username must be at least 6 characters")
+)
             
 password = st.text_input("Enter your password", type="password", help="Ensure your password is strong 🔐")
 
