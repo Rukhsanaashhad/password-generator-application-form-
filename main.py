@@ -59,7 +59,7 @@ def check_password_strength(password):
                 st.write(item)  
 
 # Username input  
-user = st.text_input("Enter your Username")  
+user = st.text_input("Enter your Username")
 if user:  
     if len(user) >= 6:  
         st.success("✅ Username Saved Successfully!")  
@@ -75,7 +75,10 @@ if st.button("Check Strength"):
     else:  
         st.warning("⚠️ Please enter a password first!")  
 
+if user == password:
+    st.button("Application form has been submitted")
 
 
-st.write("----------")
+
+st.write("-----------")
 st.write("©️ Created by [Muhammad Ashhad Khan](https://github.com/Rukhsanaashhad)")
