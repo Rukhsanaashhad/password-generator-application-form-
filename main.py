@@ -13,7 +13,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.title("🔐Password Strength Generator")
+st.title("🔐Password Strength Generator(Application Form)")
 
 
 
@@ -59,7 +59,7 @@ def check_password_strength(password):
 
 
 user= st.text_input("Enter your Username")
-if len(user) >= 6:
+if (user) >= 6:
     print("Username Saved Successfully! ")
 else:
     print("username must be at least 6 characters")
