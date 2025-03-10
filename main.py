@@ -13,17 +13,7 @@ st.markdown("""
 </style>  
 """, unsafe_allow_html=True)  
 
-def generate_password_meter(length ,use_digits  ,use_special):
-    characters = string.ascii_letters
 
-
-    if use_digits:
-        characters += string.digits
-
-    if use_special:
-        characters += string.punctuation
-
-    return ''.join(random.choice(characters) for loop in range(length))
 
 st.title("🔐 Password Strength Generator (Application Form)")  
 
@@ -84,7 +74,21 @@ if st.button("Check Strength"):
         check_password_strength(password)  
     else:  
         st.warning("⚠️ Please enter a password first!")  
-        use_digits = st.checkbox("Include Digits")
+
+def generate_password_meter(length ,use_digits  ,use_special):
+    characters = string.ascii_letters
+
+
+    if use_digits:
+        characters += string.digits
+
+    if use_special:
+        characters += string.punctuation
+
+    return ''.join(random.choice(characters) for loop in range(length))
+
+        
+use_digits = st.checkbox("Include Digits")
 
 use_special = st.checkbox("Use Special Characters")
 
