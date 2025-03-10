@@ -13,13 +13,10 @@ st.markdown("""
 </style>  
 """, unsafe_allow_html=True)  
 
-
-
 st.title("🔐 Password Strength Generator (Application Form)")  
-
-# Password strength checking function  
 st.write("Create a secure username and password to protect your account.")  
 
+# Password strength checking function  
 def check_password_strength(password):  
     score = 0  
     feedback = []  
@@ -32,7 +29,7 @@ def check_password_strength(password):
     if re.search(r"[A-Z]", password) and re.search(r"[a-z]", password):  
         score += 1  
     else:  
-        feedback.append("❌ Password should include **both uppercase(A-Z) and lowercase(a-z)**")  
+        feedback.append("❌ Password should include **both uppercase (A-Z) and lowercase (a-z)**")  
 
     if re.search(r"\d", password):  
         score += 1  
@@ -44,40 +41,45 @@ def check_password_strength(password):
     else:  
         feedback.append("❌ Password should include **at least one special character (!@#$%^&*()_-+=?/><.,';:)**.")  
 
-    # Display password strength result  
-    if score == 4:  
-        st.success("✅ **Strong Password**: Your Application Form has been submitted")  
-    elif score == 3:  
-        st.info("⚠️ **Moderate Password** - Consider improving security by adding more features.")  
-    else:  
-        st.error("❌ **Weak Password** - Follow the suggestions below to strengthen it.")  
-
-    # Feedback  
-    if feedback:  
-        with st.expander("🔍 **Improve your password**"):  
-            for item in feedback:  
-                st.write(item)  
+    return score, feedback  
 
 # Username input  
-user = st.text_input("Enter your Username")
+user = st.text_input("Enter your Username")  
+username_valid = False  
+
 if user:  
     if len(user) >= 6:  
         st.success("✅ Username Saved Successfully!")  
+        username_valid = True  
     else:  
         st.error("❌ Username must be at least 6 characters!")  
-        
+
 # Password input  
 password = st.text_input("Enter your password", type="password", help="Ensure your password is strong 🔐")  
 
 if st.button("Check Strength and Submit"):  
-    if password:  
-        check_password_strength(password)  
+    if username_valid and password:  
+        score, feedback = check_password_strength(password)  
+        
+        # Only show success message if the password is strong  
+        if score == 4:  
+            st.success("✅ Strong Password: Your Application Form has been submitted.")  
+        elif score >= 3:  
+            st.info("⚠️ Moderate Password - Consider improving security by adding more features.")  
+        else:  
+            st.error("❌ Weak Password - Follow the suggestions below to strengthen it.")  
+        
+        # Feedback  
+        if feedback:  
+            with st.expander("🔍 Improve your password"):  
+                for item in feedback:  
+                    st.write(item)  
     else:  
-        st.warning("⚠️ Please enter a password first!")  
+        if not username_valid:  
+            st.error("❌ Please ensure your username is valid.")  
+        if not password:  
+            st.warning("⚠️ Please enter a password first!")  
 
-
-
-
-
-st.write("-----------")
-st.write("©️ Created by [Muhammad Ashhad Khan](https://github.com/Rukhsanaashhad)")
+# Footer  
+st.write("-----------")  
+st.write("©️ Created by [Muhammad Ashhad Khan](https://github.com/Rukhsanaashhad)")  
